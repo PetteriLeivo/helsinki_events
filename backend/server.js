@@ -6,17 +6,17 @@ app.use(cors())
 
 
 
-app.get('/musicevents', async (req, res) => {
-    await axios
+app.get('/musicevents', (req, res) => {
+    axios
         .get("https://api.hel.fi/linkedevents/v1/event/",
             {
                 params: {
                     include: "location",
                     start: "now",
-                    //end: "2022-12-31",
-                    audience_min_age_gt: 12,                   
+                    end: "2022-12-31",
+                    audience_min_age_gt: 12,
                     keyword: "yso:p11185" + "," + "yso:p1808",
-                    sort: "end_time",
+                    sort: "start_time",
                     page: req.query.page
                 }
             }

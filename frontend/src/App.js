@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 
-// to do sort by date and then remove duplicates
 
 const MusicEvents = (props) => {
   const [musicEvents, setMusicEvents] = useState([])
@@ -17,8 +16,8 @@ const MusicEvents = (props) => {
         page: pages
       }
     }
-    const getMusicEvents = async () => {
-      await axios.request(options)
+    const getMusicEvents = () => {
+       axios.request(options)
         .then((response) => {
           setHeaderNextPage(response.data.meta.next)
           setHeaderPrevPage(response.data.meta.previous)
