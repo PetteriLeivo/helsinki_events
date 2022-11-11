@@ -16,7 +16,6 @@ const MusicEvents = (props) => {
         page: pages
       }
     }
-    const getMusicEvents = () => {
        axios.request(options)
         .then((response) => {
           setHeaderNextPage(response.data.meta.next)
@@ -26,14 +25,8 @@ const MusicEvents = (props) => {
         ).catch((error) => {
           console.log(error)
         })
-    }
-    getMusicEvents();
-    if(musicEvents.data !== undefined) {
-      for (let step = 0; step < musicEvents.data.length; step++) {
-        console.log(step)
-      }
-    }
-   
+    
+    
     window.scrollTo(0, 0)
     
   }, [pages])
@@ -48,7 +41,7 @@ const MusicEvents = (props) => {
           <h1>Helsingin tapahtumat</h1>
           <h2>Musiikkitapahtumat</h2>
           {musicEvents.data.map(musicEvent => <ol style={{ textAlign: "center", listStyle: 'none' }}><MusicEventImage musicEventImage={musicEvent.images} /> <MusicEventName musicEventID={musicEvent.id} musicEventName={musicEvent} />
-          <MusicEventStartingTime startingTime={musicEvent.start_time} /> <MusicEventDistrict location={musicEvent.location} /> <MusicEventStreetAddress address={musicEvent.location} /> />
+          <MusicEventStartingTime startingTime={musicEvent.start_time} /> <MusicEventDistrict location={musicEvent.location} /> <MusicEventStreetAddress address={musicEvent.location} />
           </ol>)} <PrevButton headerPrevPage={headerPrevPage} pages={pages} setPages={setPages} /> <NextButton headerNextPage={headerNextPage} pages={pages} setPages={setPages} /></ol>
       </div>
     )

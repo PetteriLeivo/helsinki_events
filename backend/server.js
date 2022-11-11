@@ -13,9 +13,9 @@ app.get('/musicevents', (req, res) => {
                 params: {
                     include: "location",
                     start: "now",
-                    end: "2022-12-31",
+                    //end: "2022-12-31",
                     audience_min_age_gt: 12,
-                    keyword: "yso:p11185" + "," + "yso:p1808",
+                    keyword: "yso:p11185" + "," + "yso:p1808", 
                     sort: "start_time",
                     page: req.query.page
                 }
